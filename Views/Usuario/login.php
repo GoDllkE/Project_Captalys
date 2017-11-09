@@ -18,7 +18,7 @@
                     <label id="lbl_user_senha" for="password">Senha</label>
                     <input type="password" id="user_senha" name="user_senha" class="form-control" style="width: 90%;" placeholder="Senha. ex: 123456" maxlength="16" required/>
                 </li>
-                <p><a href="./esqueceuSenha.php">Esqueceu a senha?</a></p>
+                <p><a href="../Shared/_Layout.php?CodPg=6">Esqueceu a senha?</a></p>
 
                 <li class="form-check">
                     <input class="checkbox" type="checkbox" id="contact-accept" name="contact-accept" />
