@@ -9,15 +9,22 @@
     <br />    
 </div>
 <fieldset>
+    <center>
         <div class="row">
-            <div class="col-4 grafico" style="margin-left: -100px;">
-                <img class="imagem-grafico" src="../Consulta/Grafico1.php" />
+            <div class="col-4 grafico">
+                <img class="imagem-grafico" src="../Consulta/GraficoAnual.php" />
             </div>
             <div class="col-4 grafico">
-                <img class="imagem-grafico" src="../Consulta/Grafico2.php" />
-            </div>
-            <div class="col-4 grafico">
-                <img class="imagem-grafico" src="../Consulta/Grafico3.php" />
+                <img class="imagem-grafico" src="../Consulta/GraficoMensal.php" />
             </div>
         </div>
+        <div class="row">
+            <div class="col-4 grafico">
+                <img class="imagem-grafico" src="../Consulta/GraficoIdade.php" />
+            </div>
+            <div class="col-4 grafico">
+                <img class="imagem-grafico" src="../Consulta/GraficoMensalAnual.php" />
+            </div>
+        </div>
+        </center>
 </fieldset>
