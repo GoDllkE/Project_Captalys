@@ -4,6 +4,18 @@
     
     class ConsultaDAO {
      
+        
+        function listaAnos() {
+            // Objetos
+            $conn = new Conexao();
+            $conector = $conn->abreConexao();
+            
+            $sql = "SELECT ano as Ano FROM consultas GROUP BY ano";
+            $dataset = mysqli_query($conector, $sql);
+            
+            return $dataset;
+        }
+        
         // ------------------------------------------------------------------------- \\
         //
         function listaValoresMediaAnual() {
