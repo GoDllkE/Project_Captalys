@@ -1,8 +1,16 @@
 <?php
     // Requititos
-    require_once '../DAO/ConsultaDAO.php';
+    require '../DAO/ConsultaDAO.php';
     
     class consultaGrafico {        
+        // ------------------------------------------------------------------------- \\
+        //
+        // Retorna lista de anos
+        function getListaAnos() {
+            $dao = new ConsultaDAO();
+            $dataset = $dao->listaAnos();
+            return $dataset;
+        }
         
         // ------------------------------------------------------------------------- \\
         //
