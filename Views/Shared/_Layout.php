@@ -105,6 +105,11 @@
                             include '../Usuario/index.php';
                         } else { include './acessoNegado.php';}
                         break;
+                    case 6: // Necessita de não estar em sessão (usuario logado)
+                        if (!isset($_SESSION["statusLogin"]) || $_SESSION["statusLogin"] != 1) {
+                            include '../Usuario/esqueceuSenha.php';
+                        } else { include './acessoNegado.php';}
+                        break;
                     default:
                         include './paginaErro.php';
                         break;
