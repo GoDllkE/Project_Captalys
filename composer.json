@@ -1,0 +1,11 @@
+{
+    "name": "vendor/project-captalys",
+    "description": "Descrição do projeto project_captalys.",
+    "authors": [
+        {
+            "name": "godlike",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {}
+}
