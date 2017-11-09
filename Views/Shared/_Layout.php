@@ -101,7 +101,7 @@
                         } else { include './acessoNegado.php';}
                         break;
                     case 5: // Necessita de sessão (usuario logado)
-                        if ($_SESSION["statusLogin"] == 1) {
+                        if (isset($_SESSION["statusLogin"]) && $_SESSION["statusLogin"] == 1) {
                             include '../Usuario/index.php';
                         } else { include './acessoNegado.php';}
                         break;
