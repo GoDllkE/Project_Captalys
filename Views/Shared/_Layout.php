@@ -12,7 +12,8 @@
     <!-- Load personalized CSS -->
     <link rel="stylesheet" href="../../Content/css/Site.css" />
     <link rel="stylesheet" href="../../Content/css/Personalizado.css" />
-
+    <link rel="stylesheet" href="../../Content/css/layoutGraficos.css" />
+    
     <!-- Load bootstrap -->
     <link rel="stylesheet" href="../../Content/css/bootstrap.css" />
 
