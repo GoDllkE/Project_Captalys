@@ -1,32 +1,82 @@
 <?php
+    # Exemplo de gráfico de barras utilizando o PHPlot
+    # Ubuntu para Iniciantes - 10/2012
+    # http:ubuntuiniciantes.com.br
+    # twitter : http://twitter.com/iniciantesUbunt
+    # faceboock: http://www.facebook.com/iniciantes.doubuntu
+    # Compartilhe Conhecimento
 
-header('Content-Type: image/gif');
+    require_once '../../Content/libraries/phplot/phplot.php';
 
-require '../../Content/libraries/phplot/phplot.php';
+    // nesse caso será utilizado uma estrutura de array
+    // a situação é a mesma para dados vindo de uma consulta sql
 
-$data = array(
-    array('', 1800,   5), array('', 1810,   7), array('', 1820,  10),
-    array('', 1830,  13), array('', 1840,  17), array('', 1850,  23),
-    array('', 1860,  31), array('', 1870,  39), array('', 1880,  50),
-    array('', 1890,  63), array('', 1900,  76), array('', 1910,  92),
-    array('', 1920, 106), array('', 1930, 123), array('', 1940, 132),
-    array('', 1950, 151), array('', 1960, 179), array('', 1970, 203),
-    array('', 1980, 227), array('', 1990, 249), array('', 2000, 281),
-);
+    $dados = array(
+        array('Janeiro', '10230', '11345'), 
+        array('Fevereiro', '12334', '8902'),
+        array('Marco', '12334', '8902'),
+        array('Abril', '11345', '8902'),
+        array('Maio', '8902', '8902'),
+        array('Junho', '10230', '11345')
+    );
 
-$plot = new PHPlot(800, 600);
-$plot->SetImageBorderType('plain');
+    // cria um objeto
+    $MeuGrafico = new PHPlot(400, 200);
 
-$plot->SetPlotType('lines');
-$plot->SetDataType('data-data');
-$plot->SetDataValues($data);
+    $MeuGrafico->SetImageBorderType('plain');
+    // define o formato do arquivo da imagem
+    $MeuGrafico->SetFileFormat("png");
 
-# Main plot title:
-$plot->SetTitle('US Population, in millions');
+    // define o tipo de grafico, nesse caso em barras
+    $MeuGrafico->SetPlotType('bars');
 
-# Make sure Y axis starts at 0:
-$plot->SetPlotAreaWorld(NULL, 0, NULL, NULL);
+    // Define a fonte Padrão, nesse caso o arquivo ttf está no mesmo diretório
+    // $MeuGrafico->SetDefaultTTFont('Arial.ttf'); 
 
-$plot->DrawGraph();
+    // define se as barras serão em 3D, valor 0 Imagem chamada
+    $MeuGrafico->SetShading(1); 
+    $MeuGrafico->SetDataType('text-data');
 
-?>
+
+    //função para converter para real, pode haver outra maneira!
+    function converterParaReal($value) {
+        $deg = $value;
+        $real = number_format($deg,2,',','.');
+
+        return "R$ {$real}";
+    }
+
+    // setar o valores no eixo Y no formato moeda
+    // este metodo aceita uma função quando o parametro custom é setado
+    $MeuGrafico->SetYLabelType('custom', 'converterParaReal');
+
+    // seta os dados para a plotagem do grafico
+    $MeuGrafico->SetDataValues($dados);
+
+    // definição do titulo do gráfico
+    // por questão da acentuação utilizar a função utf8_decode
+    $titulo = utf8_decode('DEMONSTRAÇÃO DO RESULTADO DE VENDAS BIMENTRAL');
+
+    // chamada do titulo definindo o tamanho da fonte
+    //foi definido null no segundo parametro pois o tipo de fonte foi setado anteriormente 
+    $MeuGrafico->SetFontTTF('title', null, 9); 
+
+    // chamada das lefendas do eixo Y definindo o tamanho da fonte
+    $MeuGrafico->SetFontTTF('y_label', null, 8);
+
+    // chamada das lefendas do eixo X definindo o tamanho da fonte 
+    $MeuGrafico->SetFontTTF('x_label', null, 8);
+
+    // Setar o titulo definido na varieavel $titulo anteriomente
+    $MeuGrafico->SetTitle($titulo);
+
+    // Gera uma legenda
+    $MeuGrafico->SetLegend(array('Pedro', 'Paulo'));
+
+    //Por padrão é setado "marcas" das escalas do eixo x, none retira estas marcas.
+    $MeuGrafico->SetXTickPos('none');
+
+    // gera o grafico
+    $MeuGrafico->DrawGraph();
+
+?> 
