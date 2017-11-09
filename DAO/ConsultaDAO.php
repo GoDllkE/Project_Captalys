@@ -4,45 +4,53 @@
     
     class ConsultaDAO {
      
-        function listaValoresAnuais() {
+        // ------------------------------------------------------------------------- \\
+        //
+        function listaValoresMediaAnual() {
             // Objetos
             $conn = new Conexao();
             $conector = $conn->abreConexao();
             
-            $sql = "SELECT ano, avg(valor) FROM consultas GROUP BY ano";
+            $sql = "SELECT ano as Ano, avg(valor) as Media FROM consultas GROUP BY ano";
             $dataset = mysqli_query($conector, $sql);
             
             return $dataset;
         }
         
-        function listaValoresIdade() {
+        // ------------------------------------------------------------------------- \\
+        //
+        function listaValoresMediaIdade() {
             // Objetos
             $conn = new Conexao();
             $conector = $conn->abreConexao();
             
-            $sql = "SELECT idade, avg(valor) FROM consultas GROUP BY idade";
+            $sql = "SELECT idade as Idade, avg(valor) as Media FROM consultas GROUP BY idade";
             $dataset = mysqli_query($conector, $sql);
             
             return $dataset;
         }
         
-        function listaValoresMes() {
+        // ------------------------------------------------------------------------- \\
+        //
+        function listaValoresMediaMes() {
             // Objetos
             $conn = new Conexao();
             $conector = $conn->abreConexao();
             
-            $sql = "SELECT idade, avg(valor) FROM consultas GROUP BY idade";
+            $sql = "SELECT idade as Idade, avg(valor) as Media FROM consultas GROUP BY idade";
             $dataset = mysqli_query($conector, $sql);
             
             return $dataset;
         }
         
+        // ------------------------------------------------------------------------- \\
+        //
         function listaValoresMensalAnual($ano) {
             // Objetos
             $conn = new Conexao();
             $conector = $conn->abreConexao();
             
-            $sql = "SELECT mes, avg(valor) FROM consultas WHERE ano=".$ano." GROUP BY mes;";
+            $sql = "SELECT mes as Mes, avg(valor) as MediaFROM consultas WHERE ano=".$ano." GROUP BY mes;";
             $dataset = mysqli_query($conector, $sql);
             
             return $dataset;
