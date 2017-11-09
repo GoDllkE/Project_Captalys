@@ -1,4 +1,4 @@
 <!-- Colocar gráfico aqui -->
 <fieldset>
-    <?php include '../../Content/PHPlot/getGraph.php'; ?>
+    <?php include './criaGrafico.php'; ?>
 </fieldset>  
