@@ -1,6 +1,6 @@
 <?php
     class Conexao {
-        
+        // Dados da conexao
         private $host = "localhost";
         private $user = "captalys";
         private $password = "123456";
